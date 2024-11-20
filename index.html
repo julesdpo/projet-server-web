@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="images/arbre.jpeg" type="image/x-icon">
 </head>
 <body class="flex flex-col min-h-screen bg-gray-50">
-    <!-- Header -->
     <header class="bg-gradient-to-r from-blue-800 to-gray-800 text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-4xl font-extrabold">Bienvenue sur <span class="text-blue-400">Alibobo</span></h1>
@@ -20,7 +19,6 @@
         </div>
     </header>
 
-    <!-- Navigation -->
     <nav class="bg-gray-700 text-white py-3 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex space-x-6 font-medium">
@@ -35,9 +33,7 @@
         </div>
     </nav>
     
-    <!-- Main content -->
     <main class="flex-grow">
-        <!-- Hero Section -->
         <section class="relative bg-gradient-to-r from-blue-500 to-green-500 text-white p-10 mb-8">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold mb-4">Découvrez nos produits</h2>
@@ -51,7 +47,6 @@
         <section class="container mx-auto relative mb-12">
             <div class="overflow-hidden w-full h-64 md:h-96 rounded-lg shadow-2xl">
                 <div class="carousel flex transition-transform duration-500">
-                    <!-- Images du carrousel -->
                     <div class="w-full flex-shrink-0">
                         <img src="https://via.placeholder.com/1200x400/FF5733/FFFFFF?text=Image+1" alt="Image 1" class="w-full h-full object-cover">
                     </div>
@@ -108,17 +103,16 @@
             function prevSlide() {
                 currentIndex--;
                 if (currentIndex < 0) {
-                    slides.style.transition = 'none'; // Supprimer la transition pour un changement immédiat
-                    currentIndex = totalSlides - 2; // Aller au dernier vrai slide
+                    slides.style.transition = 'none'; 
+                    currentIndex = totalSlides - 2; 
                     slides.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
                 }
                 setTimeout(() => {
-                    slides.style.transition = 'transform 0.5s ease'; // Réactiver la transition
+                    slides.style.transition = 'transform 0.5s ease'; 
                     showSlide(currentIndex);
                 }, 0);
             }
         
-            // Défilement automatique
             setInterval(() => {
                 nextSlide();
             }, 3000);
