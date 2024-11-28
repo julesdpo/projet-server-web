@@ -8,6 +8,31 @@ class MainController
         $this->render('home');
     }
 
+    public function produits()
+    {
+        $this->render('produits');
+    }
+
+    public function produit()
+    {
+        $this->render('produit');
+    }
+
+    public function panier()
+    {
+        $this->render('panier');
+    }
+
+    public function connexion()
+    {
+        $this->render('connexion');
+    }
+
+    public function inscription()
+    {
+        $this->render('inscription');
+    }
+
     // Page "About"
     public function about()
     {
