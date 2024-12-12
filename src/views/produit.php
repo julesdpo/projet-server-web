@@ -16,12 +16,16 @@
     <main class="container mx-auto p-8 flex-grow">
         <section class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
             <div class="flex flex-col md:flex-row md:items-start md:space-x-8">
-                <img src="../images/arbre.jpeg" alt="Image du produit" class="w-full md:w-1/2 h-80 object-cover rounded-lg shadow-md mb-6 md:mb-0">
+                <?php if (isset($product)): ?>
+                <img src="<?= htmlspecialchars($product['picture']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full md:w-1/2 h-80 object-cover rounded-lg shadow-md mb-6 md:mb-0">
                 <div class="flex flex-col">
-                    <h1 class="text-3xl font-bold text-gray-900 mb-4">Produit 1</h1>
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Description</h2>
-                    <p class="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</p>
-                    <h3 class="text-2xl font-bold text-green-600 mb-6">Prix: 777€</h3>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-4"><?= htmlspecialchars($product['name']) ?></h1>
+                 
+                    <p class="text-gray-600 mb-6"><?= htmlspecialchars($product['description']) ?></p>
+                    <h3 class="text-2xl font-bold text-green-600 mb-6"><?= htmlspecialchars($product['price']) ?> €</h3>
+                    <?php else: ?>
+                        <p>Produit non trouvé.</p>
+                    <?php endif; ?>
                     <button onclick="addToCart()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105">
                         Ajouter au Panier
                     </button>
@@ -36,8 +40,8 @@
     <script>
         function addToCart() {
             const product = {
-                name: "Produit 1",
-                price: 777,
+                name: "<?= htmlspecialchars($product['name']) ?>",
+                price: <?= htmlspecialchars($product['price']) ?>,
                 quantity: 1,
             };
 

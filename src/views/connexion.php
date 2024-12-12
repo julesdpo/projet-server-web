@@ -13,25 +13,31 @@
         include __DIR__ . '/partials/header.php';
     ?>
 
-    <!-- Contenu principal -->
     <main class="flex-grow flex items-center justify-center">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
             <h2 class="text-2xl font-bold mb-6 text-center">Connexion</h2>
-            <form action="login.php" method="post">
+            
+            <?php if (!empty($error)): ?>
+                <div class="bg-red-500 text-white p-4 rounded-lg mb-4"><?= htmlspecialchars($error) ?></div>
+            <?php endif; ?>
+
+            <form action="/MVC/public/connexion" method="post">
                 <div class="mb-4">
-                    <label for="username" class="block text-gray-700">Nom d'utilisateur:</label>
-                    <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="email" class="block text-gray-700">Adresse e-mail:</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block text-gray-700">Mot de passe:</label>
                     <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
+                
+
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all">Se connecter</button>
             </form>
-            <br>
-            <a href="./inscription">
-                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all">Créer un compte</button>
-            </a>
+            <p class="text-center mt-4 text-gray-600">
+                Vous n'avez pas de compte ?
+                <a href="./inscription" class="text-blue-500 hover:underline">Inscrivez-vous</a>
+            </p>
         </div>
     </main>
 
